@@ -1,44 +1,44 @@
-const axios = require('axios');
+const axios = require("axios");
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = "http://localhost:3000";
 
-// Get all books
+// Task 10 - Get all books using async callback function
 async function getAllBooks() {
     try {
         const response = await axios.get(`${BASE_URL}/books`);
         return response.data;
-    } catch (error) {
-        return error.message;
+    } catch (err) {
+        return err.message;
     }
 }
 
-// Get book by ISBN
+// Task 11 - Get book by ISBN
 async function getBookByISBN(isbn) {
     try {
         const response = await axios.get(`${BASE_URL}/isbn/${isbn}`);
         return response.data;
-    } catch (error) {
-        return error.message;
+    } catch (err) {
+        return err.message;
     }
 }
 
-// Get books by Author
+// Task 12 - Get books by Author
 async function getBooksByAuthor(author) {
     try {
         const response = await axios.get(`${BASE_URL}/author/${author}`);
         return response.data;
-    } catch (error) {
-        return error.message;
+    } catch (err) {
+        return err.message;
     }
 }
 
-// Get books by Title
+// Task 13 - Get books by Title
 async function getBooksByTitle(title) {
     try {
         const response = await axios.get(`${BASE_URL}/title/${title}`);
         return response.data;
-    } catch (error) {
-        return error.message;
+    } catch (err) {
+        return err.message;
     }
 }
 
