@@ -6,9 +6,13 @@ const BASE_URL = "http://localhost:3000";
 async function getAllBooks() {
     try {
         const response = await axios.get(`${BASE_URL}/books`);
-        return response.data;
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            return "Unable to fetch books";
+        }
     } catch (error) {
-        return error.message;
+        return error.response ? error.response.data : error.message;
     }
 }
 
@@ -16,9 +20,13 @@ async function getAllBooks() {
 async function getBookByISBN(isbn) {
     try {
         const response = await axios.get(`${BASE_URL}/isbn/${isbn}`);
-        return response.data;
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            return "Book not found";
+        }
     } catch (error) {
-        return error.message;
+        return error.response ? error.response.data : error.message;
     }
 }
 
@@ -26,9 +34,13 @@ async function getBookByISBN(isbn) {
 async function getBooksByAuthor(author) {
     try {
         const response = await axios.get(`${BASE_URL}/author/${author}`);
-        return response.data;
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            return "Author not found";
+        }
     } catch (error) {
-        return error.message;
+        return error.response ? error.response.data : error.message;
     }
 }
 
@@ -36,9 +48,13 @@ async function getBooksByAuthor(author) {
 async function getBooksByTitle(title) {
     try {
         const response = await axios.get(`${BASE_URL}/title/${title}`);
-        return response.data;
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            return "Title not found";
+        }
     } catch (error) {
-        return error.message;
+        return error.response ? error.response.data : error.message;
     }
 }
 
